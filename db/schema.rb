@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_173210) do
     t.text "description"
     t.text "specialities"
     t.bigint "user_id", null: false
-    t.boolean "available"
+    t.boolean "available", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_brains_on_user_id"

@@ -6,7 +6,7 @@ class CreateBrains < ActiveRecord::Migration[7.1]
       t.text :description
       t.text :specialities
       t.references :user, null: false, foreign_key: true
-      t.boolean :available
+      t.boolean :available, null: false, default: true
 
       t.timestamps
     end
