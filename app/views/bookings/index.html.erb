@@ -1,0 +1,15 @@
+<h1>Your Bookings</h1>
+
+<% if @bookings.any? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <%= link_to "#{booking.brain.name} - #{booking.start_date}", booking_path(booking) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no bookings.</p>
+<% end %>
+
+<%= link_to "New Booking", new_booking_path %>
