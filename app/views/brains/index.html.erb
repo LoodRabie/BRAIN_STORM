@@ -1,2 +1,47 @@
-<h1>Brains#index</h1>
-<p>Find me in app/views/brains/index.html.erb</p>
+<div class="container">
+  <% if user_signed_in? %>
+    <h2> Hi <%= current_user.first_name %> <%= current_user.last_name %> </h2>
+  <% end %>
+  <p>Welcome to BrainStorm, your premium brain renting locale</p>
+
+  <h2>Actions:</h2>
+  <ul>
+    <% if current_user.owned_brain.nil? %>
+      <li><%= link_to "Create a Brain", new_brain_path %></li>
+    <% end %>
+    <%= link_to "My Current Booked Brains", bookings_path %>
+  </ul>
+
+<h2>My Brain Status:</h2>
+<% if @my_brain %>
+  <ul>
+    <li>Brain Name: <%= @my_brain.name %></li>
+    <% if @booking %>
+      <li>Has someone booked my brain? <%= link_to "Yes", booking_path(@booking) %></li>
+    <% else %>
+      <li>Has someone booked my brain? No</li>
+    <% end %>
+    <li><%= link_to "Show My Brain", brain_path(@my_brain) %></li>
+  </ul>
+<% else %>
+  <p>You have not created a brain yet.</p>
+<% end %>
+
+  <h2>Book a Brain:</h2>
+  <% if @brains.any? %>
+    <ul>
+      <% @brains.each do |brain| %>
+        <li>
+          <%= link_to brain.name, brain_path(brain) %>
+          <% if brain.available %>
+            (Available)
+          <% else %>
+            (Not Available)
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no brains available to be booked.</p>
+  <% end %>
+</div>
