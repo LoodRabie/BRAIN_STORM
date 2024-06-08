@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get "/about", to: "pages#about"
   root to: "brains#index"
 
   resources :brains do
-    resources :bookings, only: [:new, :create, :index, :show, :destroy]
+    resources :bookings, only: [:new, :create, :index]
   end
 
   # Define a custom route for my_bookings action outside the resources :brains block
-  resources :bookings do
-    collection do
-      get 'my_bookings'
-    end
-  end
+  resources :bookings, only: [:show, :destroy, :edit, :update]
+
+  get 'my_bookings', to: "bookings#my_bookings"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

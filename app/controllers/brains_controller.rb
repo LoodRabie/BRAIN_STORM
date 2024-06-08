@@ -19,6 +19,7 @@ class BrainsController < ApplicationController
   end
 
   def show
+    @bookings = @brain.bookings.all
   end
 
   def new
