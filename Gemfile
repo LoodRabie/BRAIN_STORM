@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.3"
 gem "sprockets-rails"
 
 # Log in gem
-# gem "devise"
+gem "devise"
 
 # Faker gem
 gem 'faker'
