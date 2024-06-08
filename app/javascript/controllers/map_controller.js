@@ -16,3 +16,17 @@ export default class extends Controller {
     })
   }
 }
+
+private
+connect() {
+  // [...]
+  this.#addMarkersToMap()
+}
+
+#addMarkersToMap() {
+  this.markersValue.forEach((marker) => {
+    new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
+      .addTo(this.map)
+  })
+}
