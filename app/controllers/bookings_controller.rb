@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @brain = Brain.find(params[:brain_id])
   end
 
   def create
@@ -48,6 +49,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:brain_id, :start_date, :end_date, :status)
+    params.require(:booking).permit(:brain_id, :start_date, :end_date)
   end
 end

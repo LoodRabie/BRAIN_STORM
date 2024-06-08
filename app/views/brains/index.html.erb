@@ -9,9 +9,6 @@
     <% if current_user.owned_brain.nil? %>
       <li><%= link_to "Create a Brain", new_brain_path %></li>
     <% end %>
-    <% if @brains.any? %>
-      <li><%= link_to "Book a Brain", new_brain_booking_path(@brains.first) %></li>
-    <% end %>
     <%= link_to "My Current Booked Brains", bookings_path %>
   </ul>
 
@@ -30,7 +27,7 @@
   <p>You have not created a brain yet.</p>
 <% end %>
 
-  <h2>All Available Brains:</h2>
+  <h2>Book a Brain:</h2>
   <% if @brains.any? %>
     <ul>
       <% @brains.each do |brain| %>
