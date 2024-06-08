@@ -5,10 +5,10 @@
 <p><strong>Characteristics:</strong> <%= @booking.brain.characteristics %></p>
 <p><strong>Description:</strong> <%= @booking.brain.description %></p>
 <p><strong>Specialities:</strong> <%= @booking.brain.specialities %></p>
-<p><strong>Length of Time:</strong> <%= @booking.length_of_time %> hours</p>
+<p><strong>Length of Time:</strong> <%= @booking.length_of_time %> days</p>
 <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
 <p><strong>Status:</strong> <%= @booking.status %></p>
 
-<%= link_to "Edit Booking", edit_booking_path(@booking) %> |
-<%= link_to "Delete Booking", @booking, method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to "Back to Your Bookings", brain_bookings_path %>
+<%= link_to "Edit Booking", edit_booking_path(@booking) %>
+<%= link_to "Delete Booking", booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<%= link_to "Back to Your Bookings", my_bookings_path %>
