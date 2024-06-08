@@ -1,7 +1,6 @@
-<div class="container">
+<div class="page">
   <% if user_signed_in? %>
     <h2> Hi <%= current_user.first_name %> <%= current_user.last_name %> </h2>
-  <% end %>
   <p>Welcome to BrainStorm, your premium brain renting locale</p>
 
   <h2>Actions:</h2>
@@ -26,7 +25,7 @@
 <% else %>
   <p>You have not created a brain yet.</p>
 <% end %>
-
+ <% end %>
   <h2>Book a Brain:</h2>
   <% if @brains.any? %>
     <ul>
