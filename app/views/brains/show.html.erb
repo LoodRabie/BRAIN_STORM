@@ -1,11 +1,14 @@
-<h1><%= @brain.name %></h1>
+<div class="container">
+  <h1><%= @brain.name %></h1>
+  <p><strong>Characteristics:</strong> <%= @brain.characteristics %></p>
+  <p><strong>Description:</strong> <%= @brain.description %></p>
+  <p><strong>Specialities:</strong> <%= @brain.specialities %></p>
+  <p><strong>Current availability:</strong> <%= @brain.available ? 'Available' : 'Not Available' %></p>
 
-<p><strong>Characteristics:</strong> <%= @brain.characteristics %></p>
-<p><strong>Description:</strong> <%= @brain.description %></p>
-<p><strong>Specialities:</strong> <%= @brain.specialities %></p>
-
-
-<%= link_to "Edit Brain", edit_brain_path(@brain) %>
-<%= link_to "Delete Brain", @brain, method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Book this brain", new_brain_booking_path(@brain) %>
-<%= link_to "Back to All Brains", brains_path %>
+  <% if user_signed_in? && @brain.user_id == current_user.id %>
+    <%= link_to 'Edit Brain', edit_brain_path(@brain), class: 'btn btn-primary' %>
+    <%= link_to 'Delete Brain', brain_path(@brain), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
+  <%= link_to "Book this brain", new_brain_booking_path(@brain) %>
+  <%= link_to 'Back to Brains List', brains_path, class: 'btn btn-secondary' %>
+</div>

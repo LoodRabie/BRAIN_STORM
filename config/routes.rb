@@ -6,10 +6,14 @@ Rails.application.routes.draw do
 
   resources :brains do
     resources :bookings, only: [:new, :create, :index, :show, :destroy]
-    get 'my_bookings', on: :collection
   end
 
-  resources :bookings, only: [:new, :create]
+  # Define a custom route for my_bookings action outside the resources :brains block
+  resources :bookings do
+    collection do
+      get 'my_bookings'
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

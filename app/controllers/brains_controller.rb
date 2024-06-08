@@ -4,14 +4,22 @@ class BrainsController < ApplicationController
 
   def index
     @brains = Brain.all
-    @brain = Brain.new
+    if user_signed_in?
+      @my_brain = current_user.owned_brain
+      @booking = @my_brain&.bookings&.find_by(status: 'active') if @my_brain
+    end
+    @available_brains = Brain.where(available: true)
   end
 
   def show
   end
 
   def new
-    @brain = Brain.new
+    if current_user.owned_brain
+      redirect_to current_user.owned_brain, alert: 'You can only create one brain.'
+    else
+      @brain = Brain.new
+    end
   end
 
   def create
