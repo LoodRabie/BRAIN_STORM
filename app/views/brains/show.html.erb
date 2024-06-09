@@ -7,8 +7,30 @@
 
   <% if user_signed_in? && @brain.user_id == current_user.id %>
     <%= link_to 'Edit Brain', edit_brain_path(@brain), class: 'btn btn-primary' %>
-    <%= link_to 'Delete Brain', brain_path(@brain), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    <%= link_to 'Delete Brain', brain_path(@brain), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+
+  <h2>Bookings for this Brain</h2>
+    <% if @bookings.any? %>
+      <ul>
+        <% @bookings.each do |booking| %>
+          <li>
+            <strong>User:</strong> <%= booking.user.email %><br>
+            <strong>Start Date:</strong> <%= booking.start_date %><br>
+            <strong>Length of Time:</strong> <%= booking.length_of_time %> days<br>
+            <strong>Status:</strong> <%= booking.status %>
+            <%= simple_form_for booking do |f| %>
+              <%= f.hidden_field :status, value: 'Accepted' %>
+              <%= f.button :submit, 'Accept', class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
+              <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No bookings have been made for this brain yet.</p>
+    <% end %>
   <% end %>
-  <%= link_to "Book this brain", new_brain_booking_path(@brain) %>
+  <% if user_signed_in? && @brain.user_id != current_user.id %>
+    <%= link_to "Book this brain", new_brain_booking_path(@brain), class: 'btn btn-primary' %>
+  <% end %>
   <%= link_to 'Back to Brains List', brains_path, class: 'btn btn-secondary' %>
 </div>

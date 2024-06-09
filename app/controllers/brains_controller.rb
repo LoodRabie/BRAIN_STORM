@@ -9,9 +9,17 @@ class BrainsController < ApplicationController
       @booking = @my_brain&.bookings&.find_by(status: 'active') if @my_brain
     end
     @available_brains = Brain.where(available: true)
+
+    @markers = @brains.geocoded.map do |brain|
+      {
+        lat: brain.latitude,
+        lng: brain.longitude
+      }
+    end
   end
 
   def show
+    @bookings = @brain.bookings.all
   end
 
   def new
@@ -63,6 +71,6 @@ class BrainsController < ApplicationController
   end
 
   def brain_params
-    params.require(:brain).permit(:name, :characteristics, :description, :specialities, :available)
+    params.require(:brain).permit(:name, :characteristics, :description, :specialities, :location, :available)
   end
 end
