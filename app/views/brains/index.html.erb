@@ -6,10 +6,10 @@
   <h2>Actions:</h2>
   <ul>
   <% if current_user && current_user.owned_brain.nil? %>
-    <li><%= link_to "Create a Brain", new_brain_path, class: 'btn btn-primary' %></li>
+    <li><%= link_to "Create a Brain", new_brain_path, class: 'btn .button-link' %></li>
   <% end %>
   <br>
-  <%= link_to "My Current Booked Brains", my_bookings_path, class: 'btn btn-primary' %>
+  <%= link_to "My Current Booked Brains", my_bookings_path, class: 'btn .button-link' %>
 </ul>
 
 <h2>My Brain Status:</h2>
@@ -21,7 +21,7 @@
     <% else %>
       <li>Has someone booked my brain? No</li>
     <% end %>
-    <li><%= link_to "Show My Brain", brain_path(@my_brain), class: 'btn btn-primary' %></li>
+    <li><%= link_to "Show My Brain", brain_path(@my_brain), class: 'btn .button-link' %></li>
   </ul>
 <% else %>
   <p>You have not created a brain yet.</p>
@@ -32,7 +32,7 @@
     <ul>
       <% @brains.each do |brain| %>
         <li>
-          <%= link_to brain.name, brain_path(brain), class: 'btn btn-primary' %>
+          <%= link_to brain.name, brain_path(brain), class: 'btn .button-link' %>
           <% if brain.available %>
             (Available)
           <% else %>
@@ -53,4 +53,3 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-

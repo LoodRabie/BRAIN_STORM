@@ -19,6 +19,18 @@
 // Styling for the paragraphs
 .page p {
   font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+// Styling for the unordered list
+.page ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+// Styling for list items
+.page li {
   margin-bottom: 10px;
   line-height: 1.6;
 }
@@ -32,6 +44,7 @@
   display: inline-block;
   margin: 10px 5px 10px 0;
   padding: 10px 20px;
+  margin: 10px 5px;
   border: none;
   border-radius: 5px;
   text-decoration: none;

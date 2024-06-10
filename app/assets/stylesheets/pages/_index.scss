@@ -1,6 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
-/* General styles for the page */
+/* General styles for the index */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -8,7 +8,7 @@ body {
   background-color: #f4f4f4;
 }
 
-.page {
+.index {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
@@ -53,32 +53,32 @@ ul li span {
   color: #333333;
 }
 
-.page .link-back {
+.index .link-back {
   display: block;
   text-align: center;
   margin-top: 20px;
   font-size: 16px;
 }
 
-.page .link-back a {
+.index .link-back a {
   color: #007bff;
   text-decoration: none;
 }
 
-.page .link-back a:hover {
+.index .link-back a:hover {
   text-decoration: underline;
 }
 
-.page .actions ul li {
+.index .actions ul li {
   margin-bottom: 10px;
   font-size: 16px;
 }
 
-.page .actions ul li a {
+.index .actions ul li a {
   color: #007bff;
   text-decoration: none;
 }
 
-.page .actions ul li a:hover {
+.index .actions ul li a:hover {
   text-decoration: underline;
 }
