@@ -30,6 +30,9 @@ end
     characteristics: Faker::Lorem.sentence(word_count: 10),
     description: Faker::Lorem.paragraph(sentence_count: 5),
     specialities: Faker::Lorem.sentence(word_count: 5),
+    latitude: 0.00,
+    longitude: 10.34,
+    location: "Cape Town",
     available: [true, false].sample,
     user: user
   )
