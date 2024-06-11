@@ -1,16 +1,18 @@
-<%= form_with(model: [@brain, @booking], local: true) do |form| %>
+<div class="form-container">
+  <%= form_with(model: [@brain, @booking], local: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_field :start_date %>
-  </div>
+    <div class="field">
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :length_of_time %>
-    <%= form.number_field :length_of_time %>
-  </div>
+    <div class="field">
+      <%= form.label :length_of_time %>
+      <%= form.number_field :length_of_time, class: 'form-control' %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= form.submit 'Create a booking', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

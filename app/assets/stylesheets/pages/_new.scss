@@ -1,95 +1,114 @@
-// General styles for the page
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-}
-
-// Container for the form and link
-.container {
-  max-width: 800px;
+/* General form styles */
+form {
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-// Styling for the heading
 h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 2em;
+  margin-bottom: 10px;
   color: #333;
 }
 
-// Form styles
-form {
+/* Field container */
+.field {
   margin-bottom: 20px;
 }
 
-// Field styles
-.field {
-  margin-bottom: 15px;
-}
-
-// Label styles
-.field label {
+/* Label styling */
+label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
 }
 
-// Input and textarea styles
-.field input[type="text"],
-.field textarea {
+/* Text fields and text areas styling */
+input[type="text"],
+textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-// Submit button styles
-.actions input[type="submit"] {
-  display: inline-block;
+/* Text area specific styling */
+textarea {
+  height: 100px;
+  resize: vertical; /* Allows the user to resize the text area vertically */
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Actions div styling (submit button container) */
+.actions {
+  text-align: center;
+}
+
+/* Submit button styling */
+input[type="submit"] {
   padding: 10px 20px;
-  margin: 10px 0;
   border: none;
   border-radius: 5px;
   background-color: #007bff;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.actions input[type="submit"]:hover {
+input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-// Back link styles
-.link-back {
-  margin-top: 20px;
-}
-
-.link-back a {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px 0;
-  border: 1px solid #6c757d;
+/* Container for the booking section */
+.booking-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fdfdfd;
   border-radius: 5px;
-  background-color: #fff;
-  color: #6c757d;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.link-back a:hover {
-  background-color: #6c757d;
+/* Heading styling */
+.booking-heading {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Actions container styling */
+.booking-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Button styling (if not using a CSS framework) */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
   color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.center-container {
+  text-align: center;
 }
