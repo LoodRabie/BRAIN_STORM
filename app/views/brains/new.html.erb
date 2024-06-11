@@ -1,9 +1,9 @@
-<h1>New Brain</h1>
+<div class="center-container">
+  <h1 class="booking-heading">New Brain <%= @brain.name %></h1>
+</div>
 
 <%= render 'form' %>
 
-
-<div class="link-back">
-  <%= link_to "Back to All Brains", brains_path %>
-</div>
+<div class="booking-actions">
+  <%= link_to "My Booked Brains", my_bookings_path, class: 'btn btn-primary' %>
 </div>

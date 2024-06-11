@@ -29,24 +29,24 @@
     <% end %>
   
   <h2>Book a Brain:</h2>
-  <% if @brains.any? %>
-    <ul>
-      <% @brains.each do |brain| %>
-        <li>
-          <%= link_to brain.name, brain_path(brain), class: 'btn button-link' %>
+<% if @brains.any? %>
+  <div class="cards-container">
+    <% @brains.each do |brain| %>
+      <div class="card">
+        <h3><%= link_to brain.name, brain_path(brain), class: 'btn button-link' %></h3>
+        <p><strong>Status:</strong>
           <% if brain.available %>
-            (Available)
+            Available
           <% else %>
-            (Not Available)
+            Not Available
           <% end %>
-        </li>
-        <br>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>There are no brains available to be booked.</p>
-  <% end %>
-</div>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>There are no brains available to be booked.</p>
+<% end %>
 
 <div class="map-container"
   data-controller="map"

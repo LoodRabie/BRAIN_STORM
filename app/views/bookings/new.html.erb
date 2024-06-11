@@ -1,5 +1,9 @@
-<h1>New Booking for <%= @brain.name %></h1>
+<div class="booking-container">
+<h1 class="booking-heading">New Booking for <%= @brain.name %></h1>
 
 <%= render 'form' %>
 
+  <div class="booking-actions">
 <%= link_to "My Booked Brains", my_bookings_path, class: 'btn btn-primary' %>
+  </div>
+</div>
