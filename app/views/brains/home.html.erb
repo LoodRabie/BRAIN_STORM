@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <%= stylesheet_link_tag 'home' %>
+</head>
+<body>
+  <header>
+    <h1>Welcome to the Brain Booking App</h1>
+  </header>
+  <div class="container">
+    <main>
+      <h2>About Our Service</h2>
+      <p>We offer a unique service to book brains for various purposes. Explore our offerings and find the perfect brain for your needs.</p>
+      <%= link_to 'Book Now', new_brain_booking_path, class: 'btn btn-primary' %>
+      <%= link_to 'Learn More', about_path, class: 'btn btn-secondary' %>
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2024 Brain Booking App. All rights reserved.</p>
+  </footer>
+</body>
+</html>
