@@ -1,3 +1,4 @@
+<div class="page">
 <h1>Your Bookings</h1>
 
 <% if @bookings.any? %>
@@ -12,4 +13,5 @@
   <p>You have no bookings.</p>
 <% end %>
 
-<%= link_to "Book a brain", brains_path %>
+<%= link_to "Book a brain", brains_path, class: 'btn button-link' %>
+</div>

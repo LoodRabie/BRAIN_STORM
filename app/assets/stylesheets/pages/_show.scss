@@ -1,0 +1,92 @@
+// General page styles
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+// Styling for the h1 heading
+.page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+// Styling for the paragraphs
+.page p {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+// Styling for the unordered list
+.page ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+// Styling for list items
+.page li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.page p strong {
+  color: #555555;
+}
+
+// Styling for the buttons and links
+.page .btn {
+  display: inline-block;
+  margin: 10px 5px 10px 0;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.page .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.page .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.page .btn-danger:hover {
+  background-color: #c82333;
+}
+
+.page .btn-secondary {
+  background-color: #087ee6;
+  color: #fff;
+}
+
+.page .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.page a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.page a:hover {
+  color: #0056b3;
+}

@@ -1,5 +1,7 @@
-<h1>Edit Brain</h1>
+<div class="container">
+  <h1>Edit Brain</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to "Cancel", brain_path(@brain) %>
+  <%= link_to "Cancel", brain_path(@brain), class: "cancel-link" %>
+</div>
