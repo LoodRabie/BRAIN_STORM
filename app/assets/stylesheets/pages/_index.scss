@@ -1,39 +1,39 @@
-// General styles for the page
+/* General styles for the page */
 .page {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #f2ebf1;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-// Styling for the headings
+/* Styling for the headings */
 .page h2 {
   font-size: 2em;
   margin-bottom: 10px;
   color: #333;
 }
 
-// Styling for paragraphs
+/* Styling for paragraphs */
 .page p {
   font-size: 1.2em;
   color: #666;
   margin-bottom: 20px;
 }
 
-// Unordered list styles
+/* Unordered list styles */
 .page ul {
   list-style-type: none;
   padding: 0;
 }
 
-// List item styles
+/* List item styles */
 .page li {
   margin-bottom: 15px;
 }
 
-// Button link styles
+/* Button link styles */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -64,18 +64,24 @@
   background-color: #5a6268;
 }
 
-// Map container styles
+/* Map container styles */
 .map-container {
   width: 100%;
   height: 600px;
   margin-top: 20px;
 }
 
-// Logout link styles
+/* Logout container styles */
+.logout-container {
+  max-width: 800px;
+  margin: 20px auto 0 auto; /* Adds top margin to separate from the rest of the content */
+  text-align: center; /* Center align the logout button */
+}
+
+/* Logout link styles */
 .logout-link {
   display: inline-block;
   padding: 10px 20px;
-  margin-top: 20px;
   border: 1px solid #dc3545;
   border-radius: 5px;
   background-color: #fff;
