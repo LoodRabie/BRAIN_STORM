@@ -1,13 +1,15 @@
 <div class="page">
+<div class="d-flex">
   <h1><%= @brain.name %></h1>
+   <%= link_to 'Edit Brain', edit_brain_path(@brain), class: 'btn btn-primary' %>
+    <%= link_to 'Delete Brain', brain_path(@brain), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+</div>
   <p><strong>Characteristics:</strong> <%= @brain.characteristics %></p>
   <p><strong>Description:</strong> <%= @brain.description %></p>
   <p><strong>Specialities:</strong> <%= @brain.specialities %></p>
   <p><strong>Current availability:</strong> <%= @brain.available ? 'Available' : 'Not Available' %></p>
-
+  <%= cl_image_tag @brain.photo.key, height: 300, width: 400, crop: :fill %>
   <% if user_signed_in? && @brain.user_id == current_user.id %>
-    <%= link_to 'Edit Brain', edit_brain_path(@brain), class: 'btn btn-primary' %>
-    <%= link_to 'Delete Brain', brain_path(@brain), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 
   <h2>Bookings for this Brain</h2>
     <% if @bookings.any? %>
