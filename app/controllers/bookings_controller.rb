@@ -38,6 +38,7 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = current_user.bookings
+    @my_brain = current_user.owned_brain
   end
 
   def destroy

@@ -2,21 +2,6 @@
   <% if user_signed_in? %>
     <h2> Hi <%= current_user.first_name %> <%= current_user.last_name %> </h2>
     <p> Welcome to BrainStorm, your premium brain renting locale </p>
-
-    <h2>My Brain Status:</h2>
-    <% if @my_brain %>
-      <ul>
-        <li> Brain Name: <%= @my_brain.name %></li>
-        <% if @my_brain.bookings.any? %>
-          <li>Has someone booked my brain? Yes</li>
-        <% else %>
-          <li>Has someone booked my brain? No</li>
-        <% end %>
-        <li><%= link_to "Show My Brain", brain_path(@my_brain), class: 'btn button-link' %></li>
-      </ul>
-    <% else %>
-      <p> You have not created a brain yet.</p>
-    <% end %>
   <% else %>
     <p> Welcome to BrainStorm, your premium brain renting locale </p>
   <% end %>

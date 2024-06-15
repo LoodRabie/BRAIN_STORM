@@ -15,7 +15,7 @@ class BrainsController < ApplicationController
         lat: brain.latitude,
         lng: brain.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {brain: brain}),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: {brain: brain})
       }
     end
   end
