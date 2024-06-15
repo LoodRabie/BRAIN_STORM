@@ -25,8 +25,8 @@ class BrainsController < ApplicationController
   end
 
   def new
-    if current_user.owned_brain
-      redirect_to current_user.owned_brain, alert: 'You can only create one brain.'
+    if current_user.brain
+      redirect_to current_user.brain, alert: 'You can only create one brain.'
     else
       @brain = Brain.new
     end
@@ -50,17 +50,24 @@ class BrainsController < ApplicationController
   end
 
   def update
-    if @brain.update(brain_params)
-      redirect_to @brain, notice: 'Brain was successfully updated.'
+    if params[:brain] && params[:brain][:question]
+      @brain = @booking.brain
+      if @brain.update(question: params[:brain][:question])
+        redirect_to @booking, notice: 'Question was successfully updated.'
+      end
     else
-      render :edit
+      if @booking.update(booking_params)
+        redirect_to my_bookings_path, notice: 'Booking was successfully updated.'
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
     if @brain.user == current_user
       @brain.destroy
-      redirect_to brains_url, notice: 'Brain was successfully destroyed.'
+      redirect_to @brain, notice: 'Brain was successfully destroyed.'
     else
       redirect_to @brain, alert: "You are not authorized to delete this brain."
     end

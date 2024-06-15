@@ -8,6 +8,26 @@
 <p><strong>Length of Time:</strong> <%= @booking.length_of_time %> days</p>
 <p><strong>Start Date:</strong> <%= @booking.start_date %></p>
 <p><strong>Status:</strong> <%= @booking.status %></p>
+<% if @booking.status == 'Accepted' && Date.today < @booking.start_date %>
+  <p>Your booked brain will be available to you on the <%= @booking.start_date %> for <%= @booking.length_of_time %> days.</p>
+<% end %>
+<% if @booking.status == 'Accepted' && Date.today >= @booking.start_date && Date.today <= (@booking.start_date + @booking.length_of_time.days) %>
+  <p>Your booked brain is now available to use.</p>
+  <p>Ask your booked brain a question.</p>
+  <%= simple_form_for @booking, url: booking_path(@booking), method: :patch do |f| %>
+    <%= f.simple_fields_for :brain do |bf| %>
+      <div class="field">
+        <%= bf.input :question %>
+        <%= bf.button :submit, 'Submit', class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if @booking.brain.answer.present? %>
+  <p>Here is your booked brain's response:</p>
+  <p><%= @booking.brain.answer %></p>
+<% end %>
 
 <%= link_to "Edit Booking", edit_booking_path(@booking) %>
 <%= link_to "Delete Booking", booking_path(@booking), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger' %>

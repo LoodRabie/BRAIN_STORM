@@ -18,10 +18,12 @@
             <strong>Start Date:</strong> <%= booking.start_date %><br>
             <strong>Length of Time:</strong> <%= booking.length_of_time %> days<br>
             <strong>Status:</strong> <%= booking.status %>
-            <%= simple_form_for booking do |f| %>
-              <%= f.hidden_field :status, value: 'Accepted' %>
-              <%= f.button :submit, 'Accept', class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
-              <% end %>
+            <%= if booking.status != 'Accepted' %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.hidden_field :status, value: 'Accepted' %>
+                <%= f.button :submit, 'Accept', class: 'btn btn-primary', data: { confirm: 'Are you sure?' } %>
+                <% end %>
+            <% end %>
           </li>
         <% end %>
       </ul>
