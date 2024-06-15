@@ -13,7 +13,9 @@ class BrainsController < ApplicationController
     @markers = @brains.geocoded.map do |brain|
       {
         lat: brain.latitude,
-        lng: brain.longitude
+        lng: brain.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {brain: brain}),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
