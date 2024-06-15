@@ -1,5 +1,5 @@
 # db/seeds.rb
-
+require "open-uri"
 # Clear existing data
 puts "Clearing existing data..."
 
@@ -52,6 +52,7 @@ brains = Brain.create!([
     latitude: -33.9249,
     longitude: 18.4241,
     location: "Table Mountain, Cape Town"
+
   },
   {
     name: "Tesla Brain",
@@ -153,6 +154,13 @@ brains = Brain.create!([
     location: "Sea Point, Cape Town"
   }
 ])
+ brains = Brain.all
+
+brains.each_with_index do |brain, index|
+  file = URI.open("https://picsum.photos/800/300/?random")
+  brain.photo.attach(io: file, filename: "brain_#{index}.png", content_type: "image/png")
+  brain.save!
+end
 
 puts "Brains created."
 
