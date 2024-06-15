@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   end
 
   # Define a custom route for my_bookings action outside the resources :brains block
-  resources :bookings, only: [:show, :destroy, :edit, :update]
+  resources :bookings, only: [:show, :destroy, :edit]
 
   get 'my_bookings', to: "bookings#my_bookings"
+  get 'active_bookings', to: 'bookings#active_bookings'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
